@@ -1,9 +1,18 @@
-.card-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 600px;
-    height: 500px;
-    
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  background-size: cover;
+  background-position-y: 20%;
+  background-position-x: 40%;
+  background-repeat: no-repeat;
 }
