@@ -1,7 +1,8 @@
 :root {
   line-height: 1.5;
   font-weight: 400;
-  color: white;
+  color: black;
+  background-color: slategray;
 }
 
 .formid input {
@@ -29,7 +30,7 @@ h1 {
 }
 
 article h3 {
-  color: white;
+  color: black;
 }
 
 nav {
@@ -58,7 +59,8 @@ header {
   width: 15em;
 }
 input[type="text"] {
-  color: white;
+  color: black;
+  font-size: x-large;
 }
 button,
 input[type="button"],
@@ -94,50 +96,8 @@ input[type="button"],
   justify-content: center;
 }
 
-.ViewCreator {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 3rem;
-  width: 70%;
-}
-
-.creator-image img {
-  height: 400px;
-  width: 400px;
-  border: 2px solid var(--primary);
-  border-radius: var(--border-radius);
-  object-fit: cover;
-}
-
-.social-button {
-  display: flex;
-  width: max-content;
-  font-size: 1em;
-  text-transform: lowercase;
-  margin-top: 20px;
-  margin-left: 0px;
-  justify-content: flex-start;
-  transition: all 0.5s;
-}
-
-.modify-creator {
-  display: flex;
-  grid-column: span 2;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0px;
-  height: max-content;
-}
 
 .DB {
   --background-color: rgb(255, 96, 92);
 }
 
-.card-header-name span {
-  color: white;
-  cursor: pointer;
-  font-size: 1.5em;
-  margin-right: 12px;
-  margin-bottom: 16px;
-}

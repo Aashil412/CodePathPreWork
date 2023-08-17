@@ -25,12 +25,12 @@ function ViewCreator() {
   };
 
   return (
-    <div className="ViewCreator">
-      <section className="creator-image">
+    <div>
+      <section>
         <img src={creator.image} alt={creator.name} />
       </section>
 
-      <section className="creator-info">
+      <section>
         <h2>{creator.name}</h2>
         <p>{creator.description}</p>
         {creator.youtube && (
@@ -38,7 +38,7 @@ function ViewCreator() {
             to={"https://www.youtube.com/" + creator.youtube}
             target="_blank"
           >
-            <button className="social-button">
+            <button>
               <span />@{creator.youtube}
             </button>
           </Link>
@@ -48,7 +48,7 @@ function ViewCreator() {
             to={"https://www.twitter.com/" + creator.twitter}
             target="_blank"
           >
-            <button className="social-button">
+            <button>
               <span />@{creator.twitter}
             </button>
           </Link>
@@ -58,14 +58,14 @@ function ViewCreator() {
             to={"https://www.instagram.com/" + creator.instagram}
             target="_blank"
           >
-            <button className="social-button">
+            <button>
               <span />@{creator.instagram}
             </button>
           </Link>
         )}
       </section>
 
-      <nav className="modify-creator">
+      <nav >
         <ul>
           <li>
             <Link to={"/edit/" + id}>
