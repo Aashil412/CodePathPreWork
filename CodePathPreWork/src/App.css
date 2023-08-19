@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 #root {
   text-align: center;
 }
@@ -7,13 +12,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.ShowCreators {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
 }
 
 #root {
@@ -25,7 +23,6 @@
 
 header {
   height: 120px;
-  width: 100vw;
   background-color: rgb(43, 44, 44);
   background-size: cover;
   background-position: center;
@@ -71,13 +68,20 @@ article {
   height: 100%;
   margin: 0px;
 }
-.ShowCreators {
+.Showcreators {
   height: 100%;
   margin: 0px;
+}
+.showcreators-container{  
+  margin: 0 auto;
+  width: 1800px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  grid-template-columns: 600px 600px 600px;
+  justify-items: center;
+  gap: 10px 0;
   overflow: hidden;
+
 }
 
 @media (max-width: 1024px) {
@@ -157,4 +161,35 @@ input[type="submit"] {
 
 h5{
   color: black;
+}
+
+
+.ViewCreator {
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 500px 500px;
+  justify-items: center;
+  gap: 10px 0;
+}
+.creator-image img {
+  height: 450px;
+  width: 450px;
+  object-fit: cover;
+}
+form p {
+  font-size: 0.8em;
+  font-style: italic;
+  padding-bottom: 10px;
+}
+.creator-info{
+  display: flex;
+  flex-direction: column;
+  
+}
+.creatorlinks{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

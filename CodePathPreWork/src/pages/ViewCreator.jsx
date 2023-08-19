@@ -1,86 +1,84 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { supabase } from "../client";
-
+import { useState, useEffect } from 'react'
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import { supabase } from '../client';
+import { AiFillYoutube,AiFillTwitterCircle,AiFillInstagram} from "react-icons/ai"
 function ViewCreator() {
-  const [creator, setCreator] = useState({});
-  const { id } = useParams();
-  const navigate = useNavigate();
+    const [creator, setCreator] = useState({ name: "", imageUrl: "", description: "", youtube: "", twitter:"", instagram:"" });
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    const getCreator = async () => {
-      const { data } = await supabase.from("creators").select().eq("id", id);
-      setCreator(data[0]);
-    };
+    useEffect(() => {
+        const getCreator = async () => {
+            // GET the selected Creator
+            const { data } = await supabase
+                .from("creators")
+                .select()
+                .eq('id', id);
 
-    getCreator().catch(console.error);
-  }, []);
+            // Set the retrieved post creator to the state variable
+            if (data && data.length != 0) {
+                setCreator(data[0]);
+            }
+        }
 
-  const deleteCreator = async (event) => {
-    event.preventDefault();
+        getCreator().catch(console.error);
+    }, [])
+    const youtube = () => {
+      window.open(`https://www.youtube.com/@` + creator.youtube, "_blank");
+    }
+    const instagram = () => {
+      window.open(`https://www.instagram.com/` + creator.instagram, "_blank");
+    }
+    const twitter = () => {
+      window.open(`https://twitter.com/` + creator.twitter, "_blank");
+    }
+    const deleteCreator = async(event) => {
+        event.preventDefault();
 
-    const resp = await supabase.from("creators").delete().eq("id", id);
+        const resp = await supabase
+        .from('creators')
+        .delete()
+        .eq('id', id);
 
-    navigate("/");
-  };
+        navigate("/");
+    }
 
-  return (
-    <div>
-      <section>
-        <img src={creator.image} alt={creator.name} />
-      </section>
+    return (
+        <div className="ViewCreator">
+            <section className="creator-image">
+                <img src={creator.image} alt={creator.name}/>
+            </section>
 
-      <section>
-        <h2>{creator.name}</h2>
-        <p>{creator.description}</p>
-        {creator.youtube && (
-          <Link
-            to={"https://www.youtube.com/" + creator.youtube}
-            target="_blank"
-          >
-            <button>
-              <span />@{creator.youtube}
-            </button>
-          </Link>
-        )}
-        {creator.twitter && (
-          <Link
-            to={"https://www.twitter.com/" + creator.twitter}
-            target="_blank"
-          >
-            <button>
-              <span />@{creator.twitter}
-            </button>
-          </Link>
-        )}
-        {creator.instagram && (
-          <Link
-            to={"https://www.instagram.com/" + creator.instagram}
-            target="_blank"
-          >
-            <button>
-              <span />@{creator.instagram}
-            </button>
-          </Link>
-        )}
-      </section>
+            <section >
+          <h1 style={{fontSize: 100}}>{creator.name}</h1>
+          <p style={{ fontSize: 50 }}>{creator.description}</p>
+          <div className='creator-info'>
+            <div className='creatorlinks'>
+              <AiFillYoutube onClick={youtube} size="90px" /><h2 style={{fontSize:'50px'}}>{`@${creator.youtube}`}</h2>
+            </div>
+            <div className='creatorlinks'>
+              <AiFillTwitterCircle onClick={twitter} size="90px" /><h2 style={{fontSize:'50px'}}>{`@${creator.twitter}`}</h2>
+            </div>
+            <div className='creatorlinks'>
+              <AiFillInstagram onClick={instagram} size="90px" /><h2 style={{fontSize:'50px'}}>{`@${creator.instagram}`}</h2>
+              </div>
+            </div>
+            </section>
 
-      <nav >
-        <ul>
-          <li>
-            <Link to={"/edit/" + id}>
-              <button role="button">Edit</button>
-            </Link>
-          </li>
-          <li>
-            <button role="button" className="DB" onClick={deleteCreator}>
-              Delete
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  );
+            <nav className="modify-creator">
+                <ul>
+                    <li>
+                        <Link to={'/edit/' + id}>
+                            <button role='button'>Edit</button>
+                        </Link>
+                    </li>
+                    <li>
+                        <button role='button' className="delete-button" onClick={deleteCreator}>Delete</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    )
 }
 
-export default ViewCreator;
+export default ViewCreator

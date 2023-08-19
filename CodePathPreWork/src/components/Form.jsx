@@ -19,7 +19,7 @@ export default function Form({ creator, setCreator }) {
 
         <label>
           Description
-          <p>Provide a description of the creator</p>
+          <p>Provide a link to an image of your creator. Be sure to include the http://</p>
         </label>
         <textarea
           rows="5"
@@ -33,7 +33,7 @@ export default function Form({ creator, setCreator }) {
 
         <label>
           Image
-          <p>Image of the creator</p>
+          <p>Provide a description of the creator. Who are they? What makes them interesting?</p>
         </label>
         <input
           type="text"
@@ -45,10 +45,10 @@ export default function Form({ creator, setCreator }) {
         />
 
         <h3>Social Media Links</h3>
-
+        <p>Provide at least one of the creator's social media links.</p>
         <label>
-          <span className="fa-brands fa-youtube"></span> YouTube
-          <p>The creator's YouTube</p>
+          <span></span> YouTube
+          <p>The creator's YouTube handle (without the @)</p>
         </label>
         <input
           type="text"
@@ -59,8 +59,8 @@ export default function Form({ creator, setCreator }) {
         />
 
         <label>
-          <span className="fa-brands fa-twitter"></span> Twitter
-          <p>The creator's Twitter</p>
+          <span></span> Twitter
+          <p>The creator's Twitter handle (without the @)</p>
         </label>
         <input
           type="text"
@@ -71,8 +71,8 @@ export default function Form({ creator, setCreator }) {
         />
 
         <label>
-          <span className="fa-brands fa-instagram"></span> Instagram
-          <p>The creator's Instagram</p>
+          <span></span> Instagram
+          <p>The creator's Instagram handle (without the @)</p>
         </label>
         <input
           type="text"

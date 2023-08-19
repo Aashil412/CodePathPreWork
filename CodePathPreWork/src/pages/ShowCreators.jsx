@@ -17,6 +17,7 @@ function Showcreators() {
 
   return (
     <section className="Showcreators">
+      <div className="showcreators-container">
       {creatorData && creatorData.length > 0 ? (
         creatorData.map((creator) => (
           <Card
@@ -32,7 +33,8 @@ function Showcreators() {
         ))
       ) : (
         <h3>{"No Creators"}</h3>
-      )}
+        )}
+        </div>
     </section>
   );
 }
